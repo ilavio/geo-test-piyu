@@ -1,4 +1,4 @@
-package com.geo.i.service.impl;
+package com.geo.i.entity;
 
 import lombok.Data;
 

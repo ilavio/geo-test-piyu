@@ -1,6 +1,7 @@
 package com.geo.i.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +19,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
 @ComponentScan("com.geo.i")
 @EnableWebMvc
+@EnableCaching
 @RequiredArgsConstructor
 public class ApplicationContextData implements WebMvcConfigurer {
 
@@ -48,5 +50,15 @@ public class ApplicationContextData implements WebMvcConfigurer {
     resolver.setForceContentType(true);
     resolver.setContentType("text/html; charset=UTF-8");
     registry.viewResolver(resolver);
+  }
+
+  @Bean
+  public ThymeleafViewResolver viewResolver() {
+    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+    viewResolver.setTemplateEngine(templateEngine());
+    viewResolver.setContentType("text/html;charset=UTF-8");
+    viewResolver.setCharacterEncoding("utf-8");
+
+    return viewResolver;
   }
 }

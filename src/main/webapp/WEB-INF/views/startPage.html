@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Получение данных</title>
 </head>
 <body>
-<p>Пример: "https://nominatim.openstreetmap.org/search?state=Самарская область&country=russia&format=json&polygon_geojson=1"</p>
+<p>Пример: "https://nominatim.openstreetmap.org/search?state=Samara&country=russia&format=json&polygon_geojson=1"</p>
 <form th:method="post" th:action="@{/get}" th:object="${urlAdress}">
   <label for="name">Введите адресс:</label>
   <input type="text" id="name" th:field="*{addresses}" name="name" size="100">
